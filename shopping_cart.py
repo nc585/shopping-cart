@@ -1,5 +1,7 @@
 # shopping_cart.py
 
+import datetime
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -23,6 +25,39 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-while True:
-    x = input("Please input a product id:")
-    print(x)
+#for p in products:
+#    print(p)
+
+#x = 3 
+
+#while x < 5:
+ #   #y = input("Please input a product id:")
+  #  #print(y) 
+  #  print(x)
+   # x = x + 1
+
+t = datetime.datetime.now()
+
+print("STARTED AT: " + str(t))
+
+
+x = 1 
+
+running_total = 0
+
+while x < 5: # todo: restore infinite looping condition 
+    # todo: ask user to input a product id
+    selected_id = 1 # input("Please select a product id (1-20)")
+    matching_products = [p for p in products if p["id"] == selected_id]
+    product = matching_products[0]
+    price = product["price"]#4.95 # todo: lookup actual price of the scanned / selected product
+    running_total = running_total + price
+    x = x + 1 
+
+
+
+
+
+print("THE TOTAL PRICE IS: " + str(running_total))
+
+#todo: calculate tax, add tax + total 
