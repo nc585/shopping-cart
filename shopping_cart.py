@@ -28,31 +28,25 @@ products = [
 #for p in products:
 #    print(p)
 
-#x = 3 
-
-#while x < 5:
- #   #y = input("Please input a product id:")
-  #  #print(y) 
-  #  print(x)
-   # x = x + 1
-
 t = datetime.datetime.now()
 
-print("STARTED AT: " + str(t))
-
-
-x = 1 
+#print("STARTED AT: " + str(t))
+print(t.strftime("%Y-%m-%d %H:%M"))
 
 running_total = 0
 
-while x < 5: # todo: restore infinite looping condition 
-    # todo: ask user to input a product id
-    selected_id = 1 # input("Please select a product id (1-20)")
+while True:
+    selected_id = input("Please select a product id (1-20) or 'DONE' if there are no more items: ")
     matching_products = [p for p in products if p["id"] == selected_id]
-    product = matching_products[0]
-    price = product["price"]#4.95 # todo: lookup actual price of the scanned / selected product
-    running_total = running_total + price
-    x = x + 1 
+    g = matching_products
+    for a in range(len(g)):
+        print(g(a))
+
+    #print(int("matching_products"))
+    #product = matching_products["name"]
+    #price = product["price"]#4.95 # todo: lookup actual price of the scanned / selected product
+    #running_total = running_total + price
+    #x = x + 1 
 
 
 
