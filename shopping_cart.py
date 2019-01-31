@@ -26,10 +26,11 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
 t = datetime.datetime.now()
-
-print("STARTED AT: " + t.strftime("%Y-%m-%d %H:%M"))
+print("--------------")
+print("CHECKOUT TIME: " + t.strftime("%Y-%m-%d %H:%M"))
 
 running_total = 0
+
 product_ids = []
 
 while True:
@@ -38,12 +39,12 @@ while True:
         break
     if not selected_id.isdigit():
         print("Please enter a valid product id")
-    if int(selected_id) not in range (1,20):
+    if int(selected_id) not in range (1,21):
         print("Please enter a valid product id from 1 to 20")
     else: 
         matching_products = [p for p in products if p["id"] == selected_id]
-        for p in products:
-            product_ids.append(p["id"])
+        for p in matching_products: #FIX THIS 
+            product_ids.append(int(selected_id))
 print("SHOPPING CART PRODUCT IDENTIFIERS INCLUDE:", product_ids)
 
 #    g = matching_products
