@@ -58,8 +58,8 @@ for selected_id in product_ids:
 
 #print("SHOPPING CART PRODUCT IDENTIFIERS INCLUDE:", product_ids)
 
-
-print("SUBTOTAL: " + str(running_total))
+print("--------------")
+print("SUBTOTAL: $", round(running_total,2))
 print("DC SALES TAX: $", round(.06*running_total,2))
 print("TOTAL AMOUNT DUE: $", round(1.06*running_total,2))
 print("--------------")
