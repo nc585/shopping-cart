@@ -26,8 +26,6 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
 t = datetime.datetime.now()
-print("--------------")
-print("CHECKOUT TIME: " + t.strftime("%Y-%m-%d %H:%M"))
 
 running_total = 0
 
@@ -40,48 +38,30 @@ while True:
         print("Please enter a valid product id")
     if int(selected_id) not in range (1,21):
         print("Please enter a valid product id from 1 to 20")
-    else: 
-
-        # matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-        # matching_product = matching_products[0]
-        # price = matching_product["price"]
-        # running_total = running_total + price
-        # print("SELECTED PRODUCT: + " + matching_product["name"] + " " + "($" + str(round(price,2)) + ")")
-
-        #for p in matching_products:  
+    else:  
         product_ids.append(selected_id)
 
-#print(product_ids)
-
+print("--------------")
+print("TRADER NINA'S")
+print("WWW.TRADERNINAS.COM")
+print("1.202.234.5678")
+print("--------------")
+print("CHECKOUT AT: " + t.strftime("%Y-%m-%d %H:%M:%S"))
+print("--------------")
+print("SELECTED PRODUCTS:")
 for selected_id in product_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     price = matching_product["price"]
     running_total = running_total + price
-    print("SELECTED PRODUCT: + " + matching_product["name"] + " " + "($" + str(round(price,2)) + ")")
+    print("+ " + matching_product["name"] + " " + "($" + str(round(price,2)) + ")")
+
+#print("SHOPPING CART PRODUCT IDENTIFIERS INCLUDE:", product_ids)
 
 
-print("SHOPPING CART PRODUCT IDENTIFIERS INCLUDE:", product_ids)
-
-#    g = matching_products
- #   for a in range(len(g)):
-  #      print(g(a))
-
-    #print(int("matching_products"))
-    #product = matching_products["name"]
-    #price = product["price"]#4.95 # todo: lookup actual price of the scanned / selected product
-    #running_total = running_total + price
-    #x = x + 1 
-
-
-
-#for p in product_ids: #change to products later
- #   price = p["price"]
-  #  print("+ " + p["name"]+ " " + "($" + str(round(price,2))+")")
-
-
-
-
-print("THE TOTAL PRICE IS: " + str(running_total))
-
-#todo: calculate tax, add tax + total 
+print("SUBTOTAL: " + str(running_total))
+print("DC SALES TAX: $", round(.06*running_total,2))
+print("TOTAL AMOUNT DUE: $", round(1.06*running_total,2))
+print("--------------")
+print("THANK YOU! SEE YOU NEXT TIME!")
+print("--------------")
