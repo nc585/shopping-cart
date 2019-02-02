@@ -41,15 +41,27 @@ while True:
     if int(selected_id) not in range (1,21):
         print("Please enter a valid product id from 1 to 20")
     else: 
-        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-        matching_product = matching_products[0]
-        price = matching_product["price"]
-        print("SELECTED PRODUCT: + " + matching_product["name"] + " " + "($" + str(round(price,2)) + ")")
+
+        # matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+        # matching_product = matching_products[0]
+        # price = matching_product["price"]
+        # running_total = running_total + price
+        # print("SELECTED PRODUCT: + " + matching_product["name"] + " " + "($" + str(round(price,2)) + ")")
 
         #for p in matching_products:  
-        #product_ids.append(selected_id)
+        product_ids.append(selected_id)
 
-#print("SHOPPING CART PRODUCT IDENTIFIERS INCLUDE:", product_ids)
+#print(product_ids)
+
+for selected_id in product_ids:
+    matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+    matching_product = matching_products[0]
+    price = matching_product["price"]
+    running_total = running_total + price
+    print("SELECTED PRODUCT: + " + matching_product["name"] + " " + "($" + str(round(price,2)) + ")")
+
+
+print("SHOPPING CART PRODUCT IDENTIFIERS INCLUDE:", product_ids)
 
 #    g = matching_products
  #   for a in range(len(g)):
