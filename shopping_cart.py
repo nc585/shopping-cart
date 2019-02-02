@@ -49,14 +49,13 @@ print("--------------")
 print("CHECKOUT AT: " + t.strftime("%Y-%m-%d %H:%M:%S"))
 print("--------------")
 print("SELECTED PRODUCTS:")
+
 for selected_id in product_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     price = matching_product["price"]
     running_total = running_total + price
     print("+ " + matching_product["name"] + " " + "($" + str(round(price,2)) + ")")
-
-#print("SHOPPING CART PRODUCT IDENTIFIERS INCLUDE:", product_ids)
 
 print("--------------")
 print("SUBTOTAL: $", round(running_total,2))
