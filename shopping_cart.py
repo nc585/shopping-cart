@@ -32,7 +32,6 @@ print("CHECKOUT TIME: " + t.strftime("%Y-%m-%d %H:%M"))
 running_total = 0
 
 product_ids = []
-
 while True:
     selected_id = input("Please select a product id (1-20) or 'DONE' if there are no more items: ")
     if selected_id == "DONE":
@@ -42,10 +41,15 @@ while True:
     if int(selected_id) not in range (1,21):
         print("Please enter a valid product id from 1 to 20")
     else: 
-        matching_products = [p for p in products if p["id"] == selected_id]
-        for p in matching_products: #FIX THIS 
-            product_ids.append(int(selected_id))
-print("SHOPPING CART PRODUCT IDENTIFIERS INCLUDE:", product_ids)
+        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+        matching_product = matching_products[0]
+        price = matching_product["price"]
+        print("SELECTED PRODUCT: + " + matching_product["name"] + " " + "($" + str(round(price,2)) + ")")
+
+        #for p in matching_products:  
+        #product_ids.append(selected_id)
+
+#print("SHOPPING CART PRODUCT IDENTIFIERS INCLUDE:", product_ids)
 
 #    g = matching_products
  #   for a in range(len(g)):
