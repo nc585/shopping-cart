@@ -1,9 +1,9 @@
-import pytest # for pytest.raises (see: https://docs.pytest.org/en/latest/assert.html)
+import pytest 
 
-from shopping_cart import TAX_RATE, to_usd, find_product
+from shopping_cart import tax_rate, to_usd, find_product
 
 def test_tax_rate():
-    assert(TAX_RATE) == 0.06
+    assert(tax_rate) == 0.06
 
 def test_to_usd():
     # it should apply USD formatting
