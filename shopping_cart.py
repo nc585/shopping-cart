@@ -39,7 +39,7 @@ if __name__ == "__main__":
     #
     # INFO CAPTURE / INPUT 
     #
-    
+
     t = datetime.datetime.now()
     running_total = 0
     product_ids = []
@@ -55,6 +55,10 @@ if __name__ == "__main__":
         else:  
             product_ids.append(selected_id)
 
+    #
+    # INFO DISPLAY / OUTPUT
+    #
+
     print("--------------")
     print("TRADER NINA'S")
     print("WWW.TRADERNINAS.COM")
@@ -62,21 +66,18 @@ if __name__ == "__main__":
     print("--------------")
     print("CHECKOUT AT: " + t.strftime("%Y-%m-%d %H:%M:%S"))
     print("--------------")
+
     print("SELECTED PRODUCTS:")
 
     for selected_id in product_ids:
-        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-        print(matching_products)
-        matching_product = matching_products[0]
-        print(matching_product)
-        price = matching_product["price"]
-        running_total = running_total + price
-        print("+ " + matching_product["name"] + " " + "($" + str(round(price,2)) + ")")
+        matching_product = find_product(selected_id, products)
+        running_total = running_total + matching_product["price"]
+        print("+ " + matching_product["name"] + " " + "($" + str(round(matching_product["price"],2)) + ")")
 
     print("--------------")
     print("SUBTOTAL: $", round(running_total,2))
-    print("DC SALES TAX: $", round(.06*running_total,2))
-    print("TOTAL AMOUNT DUE: $", round(1.06*running_total,2))
+    print("DC SALES TAX: $", round(tax_rate*running_total,2))
+    print("TOTAL AMOUNT DUE: $", round((1+tax_rate)*running_total,2))
     print("--------------")
     print("THANK YOU! SEE YOU NEXT TIME!")
     print("--------------")
