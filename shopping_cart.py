@@ -11,6 +11,9 @@ def find_product(product_id, all_products):
     matching_product = matching_products[0]
     return matching_product    
 
+def to_usd(my_price):
+    return "${0:,.2f}".format(my_price)
+
 if __name__ == "__main__":
 
     products = [
@@ -76,9 +79,6 @@ if __name__ == "__main__":
 
     tax = running_total * tax_rate
     total_price = running_total + tax
-
-    def to_usd(my_price):
-        return "${0:,.2f}".format(my_price)
 
     print("--------------")
     print("SUBTOTAL: $" + to_usd(running_total))

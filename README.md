@@ -1,5 +1,7 @@
 # Shopping Cart Project
 
+A repository for the "Shopping Cart" project in Professor Rossetti's OPIM 244 class at Georgetown University.
+
 Original project description: https://github.com/prof-rossetti/georgetown-opim-243-201901/blob/master/projects/shopping-cart.md 
 
 ## Installation
