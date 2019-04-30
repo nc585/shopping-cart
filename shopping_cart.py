@@ -74,10 +74,16 @@ if __name__ == "__main__":
         running_total = running_total + matching_product["price"]
         print("+ " + matching_product["name"] + " " + "($" + str(round(matching_product["price"],2)) + ")")
 
+    tax = running_total * tax_rate
+    total_price = running_total + tax
+
+    def to_usd(my_price):
+        return "${0:,.2f}".format(my_price)
+
     print("--------------")
-    print("SUBTOTAL: $", round(running_total,2))
-    print("DC SALES TAX: $", round(tax_rate*running_total,2))
-    print("TOTAL AMOUNT DUE: $", round((1+tax_rate)*running_total,2))
+    print("SUBTOTAL: $" + to_usd(running_total))
+    print("DC SALES TAX: $", to_usd(tax))
+    print("TOTAL AMOUNT DUE: $", to_usd(total_price))
     print("--------------")
     print("THANK YOU! SEE YOU NEXT TIME!")
     print("--------------")
